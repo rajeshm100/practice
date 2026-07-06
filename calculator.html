@@ -79,7 +79,7 @@
     ];
     ops.forEach(([btn, para, label, fn]) => {
       document.getElementById(btn).addEventListener("click", () => {
-        document.getElementById(para).innerHTML = label + ": " + fn();
+        document.getElementById(para).textContent = label + ": " + fn();
       });
     });
   </script>

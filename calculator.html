@@ -7,33 +7,81 @@
     body { font-family: sans-serif; margin: 2rem; }
     input { margin: 0.25rem; padding: 0.25rem; width: 6rem; }
     button { margin: 0.25rem; }
-    p { font-weight: bold; }
-    #paraadd { color: green; }
-    #parasub { color: red; }
-    #paramult { color: blue; }
-    #paradiv { color: purple; }
+    fieldset { margin: 1rem 0; max-width: 32rem; }
+    legend { font-weight: bold; }
+    p { font-weight: bold; margin: 0.25rem 0; }
+    .basic { color: green; }
+    .powers { color: blue; }
   </style>
 </head>
 <body>
   <h1>Calculator</h1>
   <input id="num1" type="number" placeholder="num1">
   <input id="num2" type="number" placeholder="num2">
-  <br>
-  <button id="btnadd">Add</button>
-  <button id="btnsub">Subtract</button>
-  <button id="btnmult">Multiply</button>
-  <button id="btndiv">Divide</button>
-  <p id="paraadd"></p>
-  <p id="parasub"></p>
-  <p id="paramult"></p>
-  <p id="paradiv"></p>
+
+  <fieldset>
+    <legend>Basic Arithmetic</legend>
+    <button id="btnadd">Add</button>
+    <button id="btnsub">Subtract</button>
+    <button id="btnmult">Multiply</button>
+    <button id="btndiv">Divide</button>
+    <button id="btnmod">Remainder</button>
+    <p id="paraadd" class="basic"></p>
+    <p id="parasub" class="basic"></p>
+    <p id="paramult" class="basic"></p>
+    <p id="paradiv" class="basic"></p>
+    <p id="paramod" class="basic"></p>
+  </fieldset>
+
+  <fieldset>
+    <legend>Powers &amp; Roots</legend>
+    <button id="btnpow12">num1 ^ num2</button>
+    <button id="btnpow21">num2 ^ num1</button>
+    <button id="btnsq1">Square of num1</button>
+    <button id="btncube1">Cube of num1</button>
+    <button id="btnsq2">Square of num2</button>
+    <button id="btncube2">Cube of num2</button>
+    <button id="btnsqrt1">Square root of num1</button>
+    <button id="btncbrt1">Cube root of num1</button>
+    <button id="btnsqrt2">Square root of num2</button>
+    <button id="btncbrt2">Cube root of num2</button>
+    <p id="parapow12" class="powers"></p>
+    <p id="parapow21" class="powers"></p>
+    <p id="parasq1" class="powers"></p>
+    <p id="paracube1" class="powers"></p>
+    <p id="parasq2" class="powers"></p>
+    <p id="paracube2" class="powers"></p>
+    <p id="parasqrt1" class="powers"></p>
+    <p id="paracbrt1" class="powers"></p>
+    <p id="parasqrt2" class="powers"></p>
+    <p id="paracbrt2" class="powers"></p>
+  </fieldset>
+
   <script>
     const n1 = () => Number(document.getElementById("num1").value);
     const n2 = () => Number(document.getElementById("num2").value);
-    document.getElementById("btnadd").addEventListener("click", () => { document.getElementById("paraadd").innerHTML = "Sum: " + (n1() + n2()); });
-    document.getElementById("btnsub").addEventListener("click", () => { document.getElementById("parasub").innerHTML = "Difference: " + (n1() - n2()); });
-    document.getElementById("btnmult").addEventListener("click", () => { document.getElementById("paramult").innerHTML = "Product: " + (n1() * n2()); });
-    document.getElementById("btndiv").addEventListener("click", () => { document.getElementById("paradiv").innerHTML = "Quotient: " + (n1() / n2()); });
+    const ops = [
+      ["btnadd", "paraadd", "Sum", () => n1() + n2()],
+      ["btnsub", "parasub", "Difference", () => n1() - n2()],
+      ["btnmult", "paramult", "Product", () => n1() * n2()],
+      ["btndiv", "paradiv", "Quotient", () => n1() / n2()],
+      ["btnmod", "paramod", "Remainder", () => n1() % n2()],
+      ["btnpow12", "parapow12", "num1 ^ num2", () => n1() ** n2()],
+      ["btnpow21", "parapow21", "num2 ^ num1", () => n2() ** n1()],
+      ["btnsq1", "parasq1", "Square of num1", () => n1() ** 2],
+      ["btncube1", "paracube1", "Cube of num1", () => n1() ** 3],
+      ["btnsq2", "parasq2", "Square of num2", () => n2() ** 2],
+      ["btncube2", "paracube2", "Cube of num2", () => n2() ** 3],
+      ["btnsqrt1", "parasqrt1", "Square root of num1", () => Math.sqrt(n1())],
+      ["btncbrt1", "paracbrt1", "Cube root of num1", () => Math.cbrt(n1())],
+      ["btnsqrt2", "parasqrt2", "Square root of num2", () => Math.sqrt(n2())],
+      ["btncbrt2", "paracbrt2", "Cube root of num2", () => Math.cbrt(n2())],
+    ];
+    ops.forEach(([btn, para, label, fn]) => {
+      document.getElementById(btn).addEventListener("click", () => {
+        document.getElementById(para).innerHTML = label + ": " + fn();
+      });
+    });
   </script>
 </body>
 </html>

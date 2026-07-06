@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Calculator</title>
+  <style>
+    body { font-family: sans-serif; margin: 2rem; }
+    button { margin: 0.25rem; }
+  </style>
+</head>
+<body>
+  <h1>Calculator</h1>
+  <button id="btnnum1">Enter num1</button>
+  <button id="btnnum2">Enter num2</button>
+  <br>
+  <button id="btnadd">Add</button>
+  <button id="btnsub">Subtract</button>
+  <button id="btnmult">Multiply</button>
+  <button id="btndiv">Divide</button>
+  <p id="paraadd"></p>
+  <p id="parasub"></p>
+  <p id="paramult"></p>
+  <p id="paradiv"></p>
+  <script>
+    let num1, num2;
+    document.getElementById("btnnum1").addEventListener("click", () => { num1 = Number(prompt("Enter num1:")); });
+    document.getElementById("btnnum2").addEventListener("click", () => { num2 = Number(prompt("Enter num2:")); });
+    document.getElementById("btnadd").addEventListener("click", () => { document.getElementById("paraadd").innerHTML = "Sum: " + (num1 + num2); });
+    document.getElementById("btnsub").addEventListener("click", () => { document.getElementById("parasub").innerHTML = "Difference: " + (num1 - num2); });
+    document.getElementById("btnmult").addEventListener("click", () => { document.getElementById("paramult").innerHTML = "Product: " + (num1 * num2); });
+    document.getElementById("btndiv").addEventListener("click", () => { document.getElementById("paradiv").innerHTML = "Quotient: " + (num1 / num2); });
+  </script>
+</body>
+</html>

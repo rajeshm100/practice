@@ -10,8 +10,21 @@
     fieldset { margin: 1rem 0; max-width: 32rem; }
     legend { font-weight: bold; }
     p { font-weight: bold; margin: 0.25rem 0; }
-    .basic { color: green; }
-    .powers { color: blue; }
+    #paraadd { color: green; }
+    #parasub { color: red; }
+    #paramult { color: blue; }
+    #paradiv { color: purple; }
+    #paramod { color: darkorange; }
+    #parapow12 { color: teal; }
+    #parapow21 { color: brown; }
+    #parasq1 { color: darkgreen; }
+    #paracube1 { color: crimson; }
+    #parasq2 { color: navy; }
+    #paracube2 { color: magenta; }
+    #parasqrt1 { color: chocolate; }
+    #paracbrt1 { color: darkviolet; }
+    #parasqrt2 { color: darkcyan; }
+    #paracbrt2 { color: indigo; }
   </style>
 </head>
 <body>
@@ -26,11 +39,11 @@
     <button id="btnmult">Multiply</button>
     <button id="btndiv">Divide</button>
     <button id="btnmod">Remainder</button>
-    <p id="paraadd" class="basic"></p>
-    <p id="parasub" class="basic"></p>
-    <p id="paramult" class="basic"></p>
-    <p id="paradiv" class="basic"></p>
-    <p id="paramod" class="basic"></p>
+    <p id="paraadd"></p>
+    <p id="parasub"></p>
+    <p id="paramult"></p>
+    <p id="paradiv"></p>
+    <p id="paramod"></p>
   </fieldset>
 
   <fieldset>
@@ -45,16 +58,16 @@
     <button id="btncbrt1">Cube root of num1</button>
     <button id="btnsqrt2">Square root of num2</button>
     <button id="btncbrt2">Cube root of num2</button>
-    <p id="parapow12" class="powers"></p>
-    <p id="parapow21" class="powers"></p>
-    <p id="parasq1" class="powers"></p>
-    <p id="paracube1" class="powers"></p>
-    <p id="parasq2" class="powers"></p>
-    <p id="paracube2" class="powers"></p>
-    <p id="parasqrt1" class="powers"></p>
-    <p id="paracbrt1" class="powers"></p>
-    <p id="parasqrt2" class="powers"></p>
-    <p id="paracbrt2" class="powers"></p>
+    <p id="parapow12"></p>
+    <p id="parapow21"></p>
+    <p id="parasq1"></p>
+    <p id="paracube1"></p>
+    <p id="parasq2"></p>
+    <p id="paracube2"></p>
+    <p id="parasqrt1"></p>
+    <p id="paracbrt1"></p>
+    <p id="parasqrt2"></p>
+    <p id="paracbrt2"></p>
   </fieldset>
 
   <script>
@@ -79,7 +92,7 @@
     ];
     ops.forEach(([btn, para, label, fn]) => {
       document.getElementById(btn).addEventListener("click", () => {
-        document.getElementById(para).innerHTML = label + ": " + fn();
+        document.getElementById(para).textContent = label + ": " + fn();
       });
     });
   </script>
